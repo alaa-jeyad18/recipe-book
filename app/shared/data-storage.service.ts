@@ -26,11 +26,5 @@ export class DataStorageService {
       }
     )
   }
-  uploadImage(){
-    const uploadFile = new FormData();
-    uploadFile.append('new file', this.selectedFile, this.selectedFile.name)
-    this.http.post("gs://recipe-book-ec1dc.appspot.com/", uploadFile).subscribe(
-      res => console.log(res)
-    )
-  }
+ 
 }

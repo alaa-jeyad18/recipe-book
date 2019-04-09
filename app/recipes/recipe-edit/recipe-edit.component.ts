@@ -83,8 +83,7 @@ export class RecipeEditComponent implements OnInit {
     }else{
       this.recipesService.addRecipe(this.recipeForm.value)
     }  
-    this.hideModal()   
-    this.dataStorage.uploadImage()
+    this.hideModal()      
   }
   onFileChanged(event){
     console.log(event.target.files[0])
