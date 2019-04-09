@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/sass/variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Srisakdi:700');
+@import '~ngx-toastr/toastr-bs4-alert';
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    color: $text-color;
+}
+.btn-primary{
+    background-color: $main-color;
+    border-color: $main-color;
+    &:hover{
+        background-color: $main-color;
+        border-color: $main-color;
+        opacity: 0.9;
+    }
+}
+.btn-primary:disabled{
+    background-color: $main-color;
+    border-color: $main-color;
+}
+section{
+    padding: 40px 0;
+}
+h3.title{
+    font-family: 'Srisakdi', cursive;
+    color: $main-color;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.grey-page{
+  
+}
+.grey-centered{
+    background-color: #f5f6f7;
+    height: 100vh;
+}
+input.ng-invalid.ng-touched{
+    border-color: #ef343a;
+}

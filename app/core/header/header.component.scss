@@ -1,0 +1,41 @@
+@import "../../../assets/sass/variables";
+nav.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    
+    a:not(.dropdown-item){
+        color: #fff;
+    }
+    .nav-link.active{
+        color: $main-color
+    }
+}
+.dropdown-menu{
+    right: 0;
+    left: initial;
+}
+.sticky{
+    background-color: #000;    
+}
+.navbar-toggler .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+
+}
+a{
+    cursor: pointer;
+}
+.bg-light{
+    background-color: #fff !important;
+    a.navbar-brand{
+    color: #000 !important;
+    }
+    
+}
+ul.navbar-nav{
+        @media (max-width:992px) {
+            background-color: #000 !important;
+            padding: 10px;
+        }
+}

@@ -1,0 +1,22 @@
+<form #shoppingForm="ngForm" (ngSubmit)="onSubmit(shoppingForm)">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input type="text" name="name" #name="ngModel" ngModel class="form-control" required>
+        <span class="text-danger" *ngIf="name.errors?.required && name.touched">name is required</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+          <input type="number" name="amount" #amount="ngModel" ngModel class="form-control" required pattern="^[1-9]+[0-9]*$">
+        <!-- <input type="number" name="amount" #amount="ngModel" ngModel class="form-control" required [pattern]="'^[1-9]+[0-9]*$'"> -->
+      
+        <span class="text-danger" *ngIf="amount.errors?.required && amount.touched">amount is required</span>
+        <span class="text-danger" *ngIf="amount.errors?.pattern && amount.touched">amount must be more than 0</span>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-success" type="submit" [disabled]="shoppingForm.invalid"> {{ editMode ? 'Update' : 'Add'}} </button>
+  <button class="btn btn-primary" type="button" *ngIf="editMode" (click)="onDelete()"> Delete</button>
+  <button class="btn btn-primary" type="button" (click)="onClear()"> Clear</button>
+</form>

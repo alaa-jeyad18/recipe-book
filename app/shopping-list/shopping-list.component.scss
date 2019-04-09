@@ -1,0 +1,9 @@
+@import "../../assets/sass/variables";
+@import "../../assets/sass/helpers";
+  .main-recipe{          
+      @extend %main-background;
+    .recipe-text{
+        color: #fff;
+        @extend %centered-text;
+        } 
+  }

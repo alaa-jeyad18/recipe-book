@@ -1,0 +1,35 @@
+@import "../../../assets/sass/variables";
+.copy-rights{
+    @media (max-width : 992px) {
+        text-align: center;
+    }
+    background-color: #303030;
+    color: #fff;
+    p{
+        margin-bottom: 0;
+        padding-top: 0.5rem;
+    }
+    .link{
+        color: $main-color
+    }
+    ul.nav{
+        @media (min-width : 992px) {
+            float: right;
+        }
+        float: none;
+        overflow: hidden;
+        display: block;
+        li{
+            display: inline-block;
+            // float: left;
+            a{
+            cursor: pointer;
+            opacity: 0.8;
+            transition: all 0.2s ease-in-out;        
+                &:hover{
+                    opacity: 1;
+                }
+             }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import "../../../assets/sass/variables";
+a{
+    color: $text-color;
+    display: block;
+    margin-top: 10px;
+}
+form{   
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 10px 21px #e7eeef;    
+}

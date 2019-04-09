@@ -1,0 +1,63 @@
+<div class="grey-centered">
+  <div class="container h-100">
+    <div class="row align-items-center h-100">
+      <div class="col-6 mx-auto">
+        <div class="alert alert-danger" *ngIf="authAlert()">
+          {{authService.signupErrMessage}}
+        </div>
+        <form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="name" #name="ngModel" ngModel required minlength="4">
+            <span class="text-danger" *ngIf="name.errors?.required && name.touched">user name is required</span>
+            <span class="text-danger" *ngIf="name.errors?.minlength && name.touched">user name should be at least 4 characters</span>
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" class="form-control" name="email" #email="ngModel" ngModel required [pattern]="emailRegex">
+            <!-- <div class="alert alert-danger" *ngIf="email.invalid && email.touched"> -->
+            <span class="text-danger" *ngIf="email.errors?.required && email.touched"> email is required</span>
+            <span class="text-danger" *ngIf="email.errors?.pattern && email.touched">Please enter a valid email </span>
+            <!-- </div> -->
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" #password="ngModel" ngModel required minlength="6">
+            <span class="text-danger" *ngIf="password.invalid && password.touched">password is too short</span>
+          </div>
+          <!-- <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" name="cpassword" #cpassword="ngModel" ngModel required minlength="6">
+            <!-- <span class="text-danger" *ngIf="cpassword.invalid && cpassword.touched">password is Too short</span> -->
+         <!--   <span class="text-danger" *ngIf="password != cpassword && cpassword.touched">Passwords don't match!</span>
+          <!-- <span class="text-danger" *ngIf="password.valid && cpassword.valid && passwords.invalid">Passwords don't match!</span> 
+      </div> -->
+      <!-- <div id="passwords" ngModelGroup="passwords" appPasswordMatching  #passwords="ngModelGroup"> 
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password" #password="ngModel" ngModel required minlength="6">
+              <span class="text-danger" *ngIf="password.invalid && password.touched">password is too short</span>              
+            </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input type="password" class="form-control" name="cpassword" #cpassword="ngModel" ngModel required minlength="6">
+              <span class="text-danger" *ngIf="cpassword.invalid && cpassword.touched">password is Too short</span>
+              <span class="text-danger" *ngIf="password.valid && cpassword.valid && passwords.invalid">Passwords don't match!</span>
+            </div>
+          </div> -->
+      <!-- <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" #password="ngModel" ngModel required minlength="6">
+            <span class="text-danger" *ngIf="password.errors?.required && password.touched">password is required</span>
+            <span class="text-danger" *ngIf="password.errors?.minlength && password.touched">password must be at least 6 characters</span>
+          </div> -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">signup</button>
+        <br>
+        <a routerLink="/login">already have an account</a>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

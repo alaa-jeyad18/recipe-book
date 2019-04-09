@@ -1,0 +1,15 @@
+@import "../../assets/sass/variables";
+   @import "../../assets/sass/helpers";
+  .main-recipe{    
+    //   background: url('../../assets/images/slider-4.jpg') no-repeat center center;
+      @extend %main-background;
+    .recipe-text{
+        color: #fff;
+        @extend %centered-text;
+        } 
+  }
+  .recipes{
+    @extend %recipes;
+    background-color:#f3f7f9;
+
+}

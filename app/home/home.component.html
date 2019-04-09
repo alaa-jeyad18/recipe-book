@@ -1,0 +1,66 @@
+<!-- <app-header></app-header> -->
+<div class="main">
+  <carousel>
+    <slide *ngFor="let img of images, let i=index">
+      <img [src]="img.name" alt="{{img.alt}}" class="d-block w-100 img-fluid">
+    </slide>
+  </carousel>
+  <div class="welcome-text">
+    <h2>welcome to recipe book</h2>
+    <button type="button" class="btn btn-primary">view details</button>
+  </div>
+</div>
+<section class="about" id="about" >
+  <div class="container">
+    <h3 class="title">about us</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+  </div>
+</section>
+<section class="offer"id="offer">
+  <div class="container">
+    <div class="offer-text">
+      <h3>today's offer</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+      </p>
+    </div>
+  </div>
+</section>
+<section class="gallery text-center"id="gallery">
+  <div class="container">
+    <h3 class="title">gallery</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div class="row">
+      <div class="col-md-4"*ngFor="let recipe of recipes; let i=index">
+        <div class="signle-recipe" [routerLink]="['../recipes',i]">
+          <img src="{{recipe.imagePath}}" alt="recipe-bbok" class="img-fluid">
+          <div class="recipe-name">
+            <p class="recipe-title">{{recipe.name}}</p>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</section>
+<section class="subscribe text-center">
+    <div class="container">
+      <h3 class="title">subscribe to our newsletter</h3>
+      <p>Subscribe to our newsletter and receive 15% discount from your order.</p>
+      <div class="row">
+        <div class="offset-md-3 col-md-6">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-10">
+                <input type="email" class="form-control" placeholder="Enter Your Email">
+              </div>
+              <div class="form-group col-md-2">
+                <button type="submit" class="btn btn-primary">subscribe</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- <app-footer></app-footer> -->

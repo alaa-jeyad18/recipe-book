@@ -1,0 +1,40 @@
+<!-- <app-header></app-header> -->
+<div class="main-recipe">
+  <div class="recipe-text">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">recipes</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section class="recipes">
+  <div class="container">
+    <h3 class="title">our recipes</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let recipe of recipes; let i=index">
+        <div class="card">
+          <img [src]="recipe.imagePath" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{recipe.name}}</h5>
+            <p class="card-text">{{recipe.description}}</p>
+            <a [routerLink]="[i]" class="btn btn-primary">+</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="m-auto">
+          <button type="button"(click)="onNewRecipe()" class="btn btn-success"><i class="fas fa-edit"></i>new recipe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <router-outlet></router-outlet>
+
+    <!-- <app-footer></app-footer> -->
