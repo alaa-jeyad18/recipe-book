@@ -14,17 +14,29 @@ export class DataStorageService {
   constructor(private http: HttpClient,
     private recipesService: RecipesService,
     private authService: AuthService,
-    ) { }
+  ) { }
 
   storeRecipe() {
-    return this.http.put("https://recipe-book-ec1dc.firebaseio.com/recipes.json", this.recipesService.getRecipes())    
+    return this.http.put("https://recipe-book-ec1dc.firebaseio.com/recipes.json", this.recipesService.getRecipes())
   }
   getRecipes() {
-    this.http.get("https://recipe-book-ec1dc.firebaseio.com/recipes.json").subscribe(
-      (res: Response) => {
-        console.log(res)
-      }
-    )
+    this.http.get<Recipe[]>("https://recipe-book-ec1dc.firebaseio.com/recipes.json")
+      .pipe(
+        map(
+          (recipes) => {
+            for (let recipe of recipes) {
+              if (!recipe['ingredients']) {                
+                recipe['ingredients'] = []
+              }
+            }
+            return recipes
+          }
+        )
+      )
+      .subscribe(
+        (recipes: Recipe[]) => {
+          this.recipesService.setRecipes(recipes)
+        }
+      )
   }
- 
 }
